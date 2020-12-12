@@ -14,6 +14,7 @@ final class SwatchesViewController: UICollectionViewController {
         left: 20.0,
         bottom: 50.0,
         right: 20.0)
+    
     private let itemsPerRow: CGFloat = 1
     private let itemsPerCol: CGFloat = 8
     private var taskArray: [[String]] = StorageHandler.getStorage()
@@ -95,7 +96,7 @@ extension SwatchesViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
         let isoDate = "\(date_str)"
-        let date = dateFormatter.date(from:isoDate)!
+        let date = dateFormatter.date(from:isoDate) ?? NSDate(timeIntervalSinceNow: 60) as Date
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
         let foundDate = calendar.date(from:components)
@@ -110,6 +111,7 @@ extension SwatchesViewController {
     taskTab.dateInput.date = getDate(date_str: taskValueArray[1])
     taskTab.noteInput.text = "\(taskValueArray[2])"
     taskTab.index = indexPath.item
+    taskTab.removeView.isHidden = false
     self.tabBarController!.selectedIndex = 0
 
     return false

@@ -19,6 +19,11 @@ class ViewController: UIViewController {
     
     /*buttons*/
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var discardButton: UIButton!
+    
+  
+    /*stack view*/
+    @IBOutlet weak var removeView: UIStackView!
 
     /*view*/
     @IBOutlet var background: UIView!
@@ -41,6 +46,15 @@ class ViewController: UIViewController {
         setDefaults()
         sort()
     }
+    /*Discard edit*/
+    @IBAction func discardTask(_ sender: Any) {
+        clearView()
+    }
+    /*Delete entry*/
+    @IBAction func deleteTask(_ sender: Any) {
+        StorageHandler.remove(index: index)
+        clearView()
+    }
     
     /*
      Limit input to max characters
@@ -58,15 +72,21 @@ class ViewController: UIViewController {
     @IBAction func sortCollection(_ sender: Any) {
         sort()
     }
-    
+    func clearView() {
+        titleInput.text = ""
+        noteInput.text = ""
+        index = -1
+        removeView.isHidden = true
+        dateInput.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
+
+    }
     /*
      saves current task in a 2D array
      */
     func setDefaults() {
         let dateFormatter = DateFormatter()
 
-            dateFormatter.dateStyle = DateFormatter.Style.short
-            dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
         
         let titleValue = titleInput.text!
 
@@ -104,6 +124,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        //sort values at start of program
+        sort()
+        removeView.isHidden = true
         
         //keyboard control
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

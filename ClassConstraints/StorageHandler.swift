@@ -61,7 +61,14 @@ struct StorageHandler {
         }
         return 0
     }
-    
+    static func remove(index: Int) {
+        if isSet(key: "taskList") {
+            var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+            taskArray.remove(at:index)
+            
+            defaultStorage.set(taskArray, forKey: "taskList")
+        }
+    }
     static func sort(col:Int) {
         if isSet(key: "taskList") {
             var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
@@ -89,13 +96,20 @@ struct StorageHandler {
         var pivot : String
         var i : Int
  
-        pivot = taskArray[high][0]
+        pivot = taskArray[high][col]
         
         i = low - 1
         
         for j in low ..< high+1
         {
-            if (taskArray[j][0] < pivot)
+            let value = taskArray[j][col]
+            var compare = value < pivot
+            //check if date
+            if (col == 1) {
+                compare = getDate(str:value) < getDate(str:pivot)
+                
+            }
+            if (compare)
             {
                 i = i+1
                 (taskArray[i], taskArray[j]) = (taskArray[j],taskArray[i])
@@ -105,5 +119,15 @@ struct StorageHandler {
         (taskArray[i+1], taskArray[high]) = (taskArray[high], taskArray[i+1])
         
         return i+1
+    }
+    static func getDate(str: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
+        let isoDate = "\(str)"
+        let date = dateFormatter.date(from:isoDate) ?? NSDate(timeIntervalSinceNow: 60) as Date
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        let foundDate = calendar.date(from:components)
+        return foundDate!
     }
 }

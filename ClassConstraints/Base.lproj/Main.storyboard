@@ -109,11 +109,33 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwu-wW-L6M">
+                                <rect key="frame" x="150" y="294" width="227" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-sK-wSw">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
+                                        <state key="normal" title="Discard"/>
+                                        <connections>
+                                            <action selector="discardTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="o1U-Wf-Fhs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRm-Lz-MLk">
+                                        <rect key="frame" x="182" y="0.0" width="45" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="9a3-4I-C7n"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TfH-nf-3Gc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TfH-nf-3Gc" firstAttribute="trailing" secondItem="mwu-wW-L6M" secondAttribute="trailing" constant="37" id="0Cs-7c-6PQ"/>
                             <constraint firstItem="TfH-nf-3Gc" firstAttribute="trailing" secondItem="yGW-Sf-eNP" secondAttribute="trailing" constant="37" id="4PE-7K-LAJ"/>
+                            <constraint firstItem="mwu-wW-L6M" firstAttribute="top" secondItem="TfH-nf-3Gc" secondAttribute="top" constant="250" id="PQ9-B0-D04"/>
+                            <constraint firstItem="mwu-wW-L6M" firstAttribute="leading" secondItem="TfH-nf-3Gc" secondAttribute="leading" constant="150" id="bNV-LT-dbY"/>
                             <constraint firstItem="bxJ-3v-pyk" firstAttribute="top" secondItem="TfH-nf-3Gc" secondAttribute="top" constant="42" id="e8G-vT-DpS"/>
                             <constraint firstItem="yGW-Sf-eNP" firstAttribute="leading" secondItem="TfH-nf-3Gc" secondAttribute="leading" constant="37" id="ilQ-wd-oyn"/>
                             <constraint firstItem="TfH-nf-3Gc" firstAttribute="bottom" secondItem="yGW-Sf-eNP" secondAttribute="bottom" constant="35" id="lZo-tQ-1DX"/>
@@ -124,7 +146,9 @@
                     <connections>
                         <outlet property="background" destination="Lvz-ke-Cdo" id="S3l-K5-HMi"/>
                         <outlet property="dateInput" destination="hg1-He-GUm" id="P3l-dV-L3C"/>
+                        <outlet property="discardButton" destination="Nx8-sK-wSw" id="EZX-uD-dRc"/>
                         <outlet property="noteInput" destination="Qb5-Wc-LWo" id="4Up-vP-aqO"/>
+                        <outlet property="removeView" destination="mwu-wW-L6M" id="Rpw-sr-orz"/>
                         <outlet property="saveButton" destination="zrA-B8-84j" id="s6P-v1-jKx"/>
                         <outlet property="sortSwitch" destination="Q79-hR-hiZ" id="mpk-Tx-sxW"/>
                         <outlet property="titleInput" destination="NBh-Lb-plN" id="C1F-89-Ho2"/>

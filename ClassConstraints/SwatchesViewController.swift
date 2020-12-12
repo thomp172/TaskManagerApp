@@ -92,23 +92,14 @@ extension SwatchesViewController : UICollectionViewDelegateFlowLayout {
 }
 
 extension SwatchesViewController {
-    func getDate(date_str: String) -> Date {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
-        let isoDate = "\(date_str)"
-        let date = dateFormatter.date(from:isoDate) ?? NSDate(timeIntervalSinceNow: 60) as Date
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
-        let foundDate = calendar.date(from:components)
-        return foundDate!
-    }
+    
   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
     
     let taskValueArray = taskArray[indexPath.item]
     let taskTab = tabBarController!.viewControllers![0] as! ViewController
 
     taskTab.titleInput.text = "\(taskValueArray[0])"
-    taskTab.dateInput.date = getDate(date_str: taskValueArray[1])
+    taskTab.dateInput.date = StorageHandler.getDate(str: taskValueArray[1])
     taskTab.noteInput.text = "\(taskValueArray[2])"
     taskTab.index = indexPath.item
     taskTab.removeView.isHidden = false

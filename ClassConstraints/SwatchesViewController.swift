@@ -14,7 +14,8 @@ final class SwatchesViewController: UICollectionViewController {
         left: 20.0,
         bottom: 50.0,
         right: 20.0)
-    private let itemsPerRow: CGFloat = 3
+    private let itemsPerRow: CGFloat = 1
+    private let itemsPerCol: CGFloat = 8
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -45,14 +46,20 @@ extension SwatchesViewController {
     
     //cell.backgroundColor = cellColor
     
-    let title = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 50))
-       title.text = cellColorArray[0]
-       title.font = UIFont(name: "AvenirNext-Bold", size: 15)
-       title.textAlignment = .center
-       cell.contentView.addSubview(title)
+    let title = setText(text: cellColorArray[0],cell: cell, align: .left)
+    let date = setText(text:cellColorArray[1], cell:cell, align: .right)
     
     return cell
   }
+}
+
+func setText(text: String, cell: UICollectionViewCell, align: NSTextAlignment) -> UILabel {
+    let label = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 50))
+       label.text = text
+       label.font = UIFont(name: "AvenirNext-Bold", size: 15)
+    label.textAlignment = align
+       cell.contentView.addSubview(label)
+       return label
 }
 
 extension SwatchesViewController : UICollectionViewDelegateFlowLayout {
@@ -64,8 +71,10 @@ extension SwatchesViewController : UICollectionViewDelegateFlowLayout {
     let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
     let availableWidth = view.frame.width - paddingSpace
     let widthPerItem = availableWidth / itemsPerRow
+    let heightPerItem = availableWidth/itemsPerCol
     
-    return CGSize(width: widthPerItem, height: widthPerItem)
+    
+    return CGSize(width: widthPerItem, height: heightPerItem)
   }
 
   func collectionView(_ collectionView: UICollectionView,
@@ -82,13 +91,24 @@ extension SwatchesViewController : UICollectionViewDelegateFlowLayout {
 }
 
 extension SwatchesViewController {
+    func getDate(date_str: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
+        let isoDate = "\(date_str)"
+        let date = dateFormatter.date(from:isoDate)!
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        let foundDate = calendar.date(from:components)
+        return foundDate!
+    }
   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
     let cellColorsArray = StorageHandler.getStorage()
     let cellColorArray = cellColorsArray[indexPath.item]
     let colorTab = tabBarController!.viewControllers![0] as! ViewController
 
     colorTab.titleInput.text = "\(cellColorArray[0])"
-    colorTab.dateInput.text = "\(cellColorArray[1])"
+    
+    colorTab.dateInput.date = getDate(date_str: cellColorArray[1])
     colorTab.noteInput.text = "\(cellColorArray[2])"
     
     

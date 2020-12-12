@@ -12,8 +12,8 @@ struct StorageHandler {
     
     static func getStorage() -> [[String]] {
         var colorArrays: [[String]]
-        if isSet(key: "myNotes") {
-            colorArrays = UserDefaults.standard.dictionaryRepresentation()["myNotes"] as! [[String]]
+        if isSet(key: "taskList") {
+            colorArrays = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
         } else {
             colorArrays = [[]]
         }
@@ -28,19 +28,19 @@ struct StorageHandler {
     static func set(value: [String]) {
         var colorArrays: [[String]]
         
-        if isSet(key: "myNotes") {
-            colorArrays = UserDefaults.standard.dictionaryRepresentation()["myNotes"] as! [[String]]
+        if isSet(key: "taskList") {
+            colorArrays = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
             colorArrays.append(value)
         }
         else {
             colorArrays = [value]
         }
-        defaultStorage.set(colorArrays, forKey: "myNotes")
+        defaultStorage.set(colorArrays, forKey: "taskList")
     }
     
     static func storageCount() -> Int {
-        if isSet(key: "myNotes") {
-            let colorArrays: [[String]] = UserDefaults.standard.dictionaryRepresentation()["myNotes"] as! [[String]]
+        if isSet(key: "taskList") {
+            let colorArrays: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
             return colorArrays.count
         }
         return 0

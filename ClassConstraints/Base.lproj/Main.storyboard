@@ -19,13 +19,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-Sf-eNP">
-                                <rect key="frame" x="37" y="584.5" width="340" height="193.5"/>
+                                <rect key="frame" x="37" y="402.5" width="340" height="375.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="20" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-YC-fNR">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="163.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="345.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-zz-gdR">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="163.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="345.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRY-6w-vYS">
                                                         <rect key="frame" x="0.0" y="0.0" width="340" height="20.5"/>
@@ -37,6 +37,9 @@
                                                         <rect key="frame" x="0.0" y="20.5" width="340" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="limitInput:" destination="6PI-G9-AuH" eventType="editingChanged" id="QFK-n6-HFG"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-Uz-CkZ">
                                                         <rect key="frame" x="0.0" y="54.5" width="340" height="20.5"/>
@@ -44,19 +47,17 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lot-Tm-bVY">
-                                                        <rect key="frame" x="0.0" y="75" width="340" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="alphabet"/>
-                                                    </textField>
+                                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hg1-He-GUm">
+                                                        <rect key="frame" x="0.0" y="75" width="340" height="216"/>
+                                                    </datePicker>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-9W-qTR">
-                                                        <rect key="frame" x="0.0" y="109" width="340" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="291" width="340" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qb5-Wc-LWo">
-                                                        <rect key="frame" x="0.0" y="129.5" width="340" height="34"/>
+                                                        <rect key="frame" x="0.0" y="311.5" width="340" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -65,7 +66,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrA-B8-84j">
-                                        <rect key="frame" x="0.0" y="163.5" width="340" height="30"/>
+                                        <rect key="frame" x="0.0" y="345.5" width="340" height="30"/>
                                         <state key="normal" title=" Save "/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -79,7 +80,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="saveColor:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="gxw-d6-Ya4"/>
+                                            <action selector="saveTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="gxw-d6-Ya4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -96,7 +97,7 @@
                     <tabBarItem key="tabBarItem" title="Create" image="pencil.tip" catalog="system" id="6CX-XA-LVd"/>
                     <connections>
                         <outlet property="background" destination="Lvz-ke-Cdo" id="S3l-K5-HMi"/>
-                        <outlet property="dateInput" destination="lot-Tm-bVY" id="SHT-ge-DHX"/>
+                        <outlet property="dateInput" destination="hg1-He-GUm" id="P3l-dV-L3C"/>
                         <outlet property="noteInput" destination="Qb5-Wc-LWo" id="4Up-vP-aqO"/>
                         <outlet property="saveButton" destination="zrA-B8-84j" id="s6P-v1-jKx"/>
                         <outlet property="titleInput" destination="NBh-Lb-plN" id="C1F-89-Ho2"/>

@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     /*note input fields*/
     @IBOutlet weak var titleInput: UITextField!
-    @IBOutlet weak var dateInput: UITextField!
+    @IBOutlet weak var dateInput: UIDatePicker!
     @IBOutlet weak var noteInput: UITextField!
     
     
@@ -32,19 +32,35 @@ class ViewController: UIViewController {
     /*
      User saves color as default
      */
-    @IBAction func saveColor(_ sender: Any) {
+    @IBAction func saveTask(_ sender: Any) {
         setDefaults()
     }
     
+    /*
+     Limit input to max characters
+     */
+    @IBAction func limitInput(_ sender: Any) {
+        var text = titleInput.text ?? ""
+        if (text.count > 10) {
+            text = String(text.prefix(10))
+            titleInput.text = text;
+        }
+    }
    
     
     /*
      saves current RGB pattern in a 2D array
      */
     func setDefaults() {
+        let dateFormatter = DateFormatter()
+
+            dateFormatter.dateStyle = DateFormatter.Style.short
+            dateFormatter.timeStyle = DateFormatter.Style.short
+        
         let titleValue = titleInput.text!
 
-        let dateValue = dateInput.text!
+        let dateValue = dateFormatter.string(from: dateInput.date)
+        
         let noteValue = noteInput.text!
         let array = [titleValue,dateValue,noteValue]
         StorageHandler.set(value: array)

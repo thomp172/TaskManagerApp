@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateInput: UIDatePicker!
     @IBOutlet weak var noteInput: UITextField!
     
+    /*switches*/
+    @IBOutlet weak var sortSwitch: UISwitch!
     
     /*buttons*/
     @IBOutlet weak var saveButton: UIButton!
@@ -29,11 +31,15 @@ class ViewController: UIViewController {
     let MAX = 255
     let MIN = 0
     
+    var taskArray: [[String]] = StorageHandler.getStorage()
+    var index = -1
+    
     /*
-     User saves color as default
+     User saves task as default
      */
     @IBAction func saveTask(_ sender: Any) {
         setDefaults()
+        sort()
     }
     
     /*
@@ -46,10 +52,15 @@ class ViewController: UIViewController {
             titleInput.text = text;
         }
     }
-   
+    /*
+     Re sort collection
+     */
+    @IBAction func sortCollection(_ sender: Any) {
+        sort()
+    }
     
     /*
-     saves current RGB pattern in a 2D array
+     saves current task in a 2D array
      */
     func setDefaults() {
         let dateFormatter = DateFormatter()
@@ -63,9 +74,25 @@ class ViewController: UIViewController {
         
         let noteValue = noteInput.text!
         let array = [titleValue,dateValue,noteValue]
-        StorageHandler.set(value: array)
+        
+        if (index != -1) {
+            StorageHandler.setAt(value:array, index:index)
+        }
+        else {
+            StorageHandler.set(value: array)
+        }
     }
-   
+  
+    
+    func sort() {
+        var col = 0
+        if sortSwitch.isOn {
+          col = 1
+        }
+        StorageHandler.sort(col:col)
+    }
+    
+    
     
     /*
      Load in page
@@ -101,7 +128,6 @@ class ViewController: UIViewController {
      set key to existing value
      */
     func setKeyInUserDefaults(value: [String]) {
-        //defaults.set(value, forKey: key)
         StorageHandler.set(value: value)
     }
     

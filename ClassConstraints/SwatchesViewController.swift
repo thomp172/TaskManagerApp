@@ -16,6 +16,9 @@ final class SwatchesViewController: UICollectionViewController {
         right: 20.0)
     private let itemsPerRow: CGFloat = 1
     private let itemsPerCol: CGFloat = 8
+    private var taskArray: [[String]] = StorageHandler.getStorage()
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,19 +38,16 @@ extension SwatchesViewController {
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
 
-    // Get the corresponding color
-    let cellColorsArray = StorageHandler.getStorage()
-    let cellColorArray = cellColorsArray[indexPath.item]
-    /*let cellColor = UIColor(red: CGFloat(cellColorArray[0])/255, green: CGFloat(cellColorArray[1])/255, blue: CGFloat(cellColorArray[2])/255, alpha: 1.0)
-    */
+    collectionView.alwaysBounceVertical = true
+    // Get the newest update
+    taskArray = StorageHandler.getStorage()
+    let taskValueArray = taskArray[indexPath.item]
     
     let cell = collectionView
       .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-    //cell.backgroundColor = cellColor
-    
-    let title = setText(text: cellColorArray[0],cell: cell, align: .left)
-    let date = setText(text:cellColorArray[1], cell:cell, align: .right)
+    let title = setText(text: taskValueArray[0],cell: cell, align: .left)
+    let date = setText(text:taskValueArray[1], cell:cell, align: .right)
     
     return cell
   }
@@ -102,16 +102,14 @@ extension SwatchesViewController {
         return foundDate!
     }
   override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-    let cellColorsArray = StorageHandler.getStorage()
-    let cellColorArray = cellColorsArray[indexPath.item]
-    let colorTab = tabBarController!.viewControllers![0] as! ViewController
+    
+    let taskValueArray = taskArray[indexPath.item]
+    let taskTab = tabBarController!.viewControllers![0] as! ViewController
 
-    colorTab.titleInput.text = "\(cellColorArray[0])"
-    
-    colorTab.dateInput.date = getDate(date_str: cellColorArray[1])
-    colorTab.noteInput.text = "\(cellColorArray[2])"
-    
-    
+    taskTab.titleInput.text = "\(taskValueArray[0])"
+    taskTab.dateInput.date = getDate(date_str: taskValueArray[1])
+    taskTab.noteInput.text = "\(taskValueArray[2])"
+    taskTab.index = indexPath.item
     self.tabBarController!.selectedIndex = 0
 
     return false

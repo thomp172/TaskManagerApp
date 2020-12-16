@@ -9,33 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    /*title screen label*/
+    @IBOutlet weak var label: UILabel!
+    
     /*note input fields*/
     @IBOutlet weak var titleInput: UITextField!
     @IBOutlet weak var dateInput: UIDatePicker!
-    @IBOutlet weak var noteInput: UITextField!
-    
-    /*switches*/
-    @IBOutlet weak var sortSwitch: UISwitch!
+    @IBOutlet weak var noteInput: UITextView!
     
     /*buttons*/
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
-  
-    /*stack view*/
-    @IBOutlet weak var removeView: UIStackView!
-
+    /*title image*/
+    @IBOutlet weak var imageView: UIImageView!
+    
     /*view*/
     @IBOutlet var background: UIView!
    
     /*user default*/
     var defaults: UserDefaults!
-    
-    
-    /*global values*/
-    let MAX = 255
-    let MIN = 0
     
     var taskArray: [[String]] = StorageHandler.getStorage()
     var index = -1
@@ -46,6 +40,9 @@ class ViewController: UIViewController {
     @IBAction func saveTask(_ sender: Any) {
         setDefaults()
         sort()
+        index = StorageHandler.storageCount() - 1
+        label.text = "Edit Notes!"
+        deleteButton.isHidden = false
     }
     /*Discard edit*/
     @IBAction func discardTask(_ sender: Any) {
@@ -67,19 +64,14 @@ class ViewController: UIViewController {
             titleInput.text = text;
         }
     }
-    /*
-     Re sort collection
-     */
-    @IBAction func sortCollection(_ sender: Any) {
-        sort()
-    }
+   
     func clearView() {
         titleInput.text = ""
         noteInput.text = ""
         index = -1
-        removeView.isHidden = true
+        deleteButton.isHidden = true
         dateInput.setDate(NSDate(timeIntervalSinceNow: 60) as Date, animated: false)
-
+        label.text = "Take Notes!"
     }
     /*
      saves current task in a 2D array
@@ -102,13 +94,20 @@ class ViewController: UIViewController {
         else {
             StorageHandler.set(value: array)
         }
+        
     }
   
-    
+    /*
+     sort stored tasks
+     select default of sort by: title
+     */
     func sort() {
+
         var col = 0
-        if sortSwitch.isOn {
-          col = 1
+        let sortBool = StorageHandler.getSetting(type: "sort")
+        print(sortBool)
+        if sortBool == true {
+            col = 1
         }
         StorageHandler.sort(col:col)
     }
@@ -127,7 +126,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         //sort values at start of program
         sort()
-        removeView.isHidden = true
+        //hide delete button
+        deleteButton.isHidden = true
+        //load UIImageView
         
         //keyboard control
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

@@ -9,6 +9,19 @@ import Foundation
 
 struct StorageHandler {
     static var defaultStorage: UserDefaults = UserDefaults.standard
+    /*set and get settings*/
+    static func getSetting(type: String) -> Bool {
+        var settingBool: Bool
+        if isSet(key: type) {
+            settingBool = UserDefaults.standard.dictionaryRepresentation()[type] as! Bool
+        } else {
+            settingBool = true
+        }
+        return settingBool
+    }
+    static func setSetting(value: Bool, type: String) {
+        defaultStorage.set(value, forKey:type)
+    }
     
     static func getStorage() -> [[String]] {
         var taskArrays: [[String]]

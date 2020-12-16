@@ -11,7 +11,8 @@
 		AA0FED1C25511DA300606685 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0FED1B25511DA300606685 /* TabController.swift */; };
 		AA2EB9B1254F68500008C575 /* StorageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2EB9B0254F684F0008C575 /* StorageHandler.swift */; };
 		AA51E6CD2544E5730048E647 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA51E6CC2544E5730048E647 /* UIExtensions.swift */; };
-		AAEB1AFA2589B24500D5E004 /* CellHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB1AF92589B24500D5E004 /* CellHandler.swift */; };
+		AAEB1AFA2589B24500D5E004 /* ColorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB1AF92589B24500D5E004 /* ColorHandler.swift */; };
+		AAEB1B022589D56400D5E004 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB1B012589D56400D5E004 /* EditViewController.swift */; };
 		AAEF89AD252E3E0F0022C829 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF89AC252E3E0F0022C829 /* AppDelegate.swift */; };
 		AAEF89AF252E3E0F0022C829 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF89AE252E3E0F0022C829 /* SceneDelegate.swift */; };
 		AAEF89B1252E3E0F0022C829 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF89B0252E3E0F0022C829 /* ViewController.swift */; };
@@ -44,7 +45,8 @@
 		AA0FED1B25511DA300606685 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		AA2EB9B0254F684F0008C575 /* StorageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageHandler.swift; sourceTree = "<group>"; };
 		AA51E6CC2544E5730048E647 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		AAEB1AF92589B24500D5E004 /* CellHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellHandler.swift; sourceTree = "<group>"; };
+		AAEB1AF92589B24500D5E004 /* ColorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHandler.swift; sourceTree = "<group>"; };
+		AAEB1B012589D56400D5E004 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		AAEF89A9252E3E0F0022C829 /* ClassConstraints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassConstraints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAEF89AC252E3E0F0022C829 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAEF89AE252E3E0F0022C829 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +121,8 @@
 				AAEF89BA252E3E110022C829 /* Info.plist */,
 				AA2EB9B0254F684F0008C575 /* StorageHandler.swift */,
 				AA0FED132551097000606685 /* SwatchesViewController.swift */,
-				AAEB1AF92589B24500D5E004 /* CellHandler.swift */,
+				AAEB1B012589D56400D5E004 /* EditViewController.swift */,
+				AAEB1AF92589B24500D5E004 /* ColorHandler.swift */,
 				AA0FED1B25511DA300606685 /* TabController.swift */,
 			);
 			path = ClassConstraints;
@@ -275,12 +278,13 @@
 			files = (
 				AA0FED1C25511DA300606685 /* TabController.swift in Sources */,
 				AAEF89B1252E3E0F0022C829 /* ViewController.swift in Sources */,
-				AAEB1AFA2589B24500D5E004 /* CellHandler.swift in Sources */,
+				AAEB1AFA2589B24500D5E004 /* ColorHandler.swift in Sources */,
 				AA0FED142551097000606685 /* SwatchesViewController.swift in Sources */,
 				AAEF89AD252E3E0F0022C829 /* AppDelegate.swift in Sources */,
 				AAEF89AF252E3E0F0022C829 /* SceneDelegate.swift in Sources */,
 				AA2EB9B1254F68500008C575 /* StorageHandler.swift in Sources */,
 				AA51E6CD2544E5730048E647 /* UIExtensions.swift in Sources */,
+				AAEB1B022589D56400D5E004 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

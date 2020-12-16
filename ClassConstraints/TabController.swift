@@ -7,11 +7,9 @@
 
 import UIKit
 
-
 class TabController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
 }

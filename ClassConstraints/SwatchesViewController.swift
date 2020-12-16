@@ -47,24 +47,19 @@ extension SwatchesViewController {
     let cell = collectionView
       .dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     
-    setText(text: taskValueArray[0],cell: cell, align: .left)
-    setText(text:taskValueArray[1], cell:cell, align: .right)
-    let date = StorageHandler.getDate(str: taskValueArray[1])
-    CellHandler.colorCell(cell: cell, date: date)
+    ColorHandler.setText(text: taskValueArray[0],cell: cell, align: .left)
     
+    ColorHandler.setText(text:taskValueArray[1], cell:cell, align: .right)
+    
+    let date = StorageHandler.getDate(str: taskValueArray[1])
+    ColorHandler.colorCell(cell: cell, date: date)
     
     return cell
   }
-}
-
-func setText(text: String, cell: UICollectionViewCell, align: NSTextAlignment) {
-    let label = UILabel(frame: CGRect(x: 0, y: 0, width: cell.bounds.size.width, height: 50))
-       label.text = text
-       label.font = UIFont(name: "AvenirNext-Bold", size: 15)
-    label.textAlignment = align
-       cell.contentView.addSubview(label)
+    
     
 }
+
 
 extension SwatchesViewController : UICollectionViewDelegateFlowLayout {
     
@@ -102,10 +97,13 @@ extension SwatchesViewController {
     let taskTab = tabBarController!.viewControllers![0] as! ViewController
 
     taskTab.titleInput.text = "\(taskValueArray[0])"
-    taskTab.dateInput.date = StorageHandler.getDate(str: taskValueArray[1])
+    let dateText = "\(taskValueArray[1])"
+    taskTab.dateInput.date = StorageHandler.getDate(str: dateText)
     taskTab.noteInput.text = "\(taskValueArray[2])"
+    taskTab.label.text = "Edit Notes!"
+    taskTab.deleteButton.isHidden = false
+    
     taskTab.index = indexPath.item
-    taskTab.removeView.isHidden = false
     self.tabBarController!.selectedIndex = 0
 
     return false

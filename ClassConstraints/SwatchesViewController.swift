@@ -23,7 +23,8 @@ final class SwatchesViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        collectionView.alwaysBounceVertical = true
+
         self.loadView()
     }
 }
@@ -39,7 +40,6 @@ extension SwatchesViewController {
     cellForItemAt indexPath: IndexPath
   ) -> UICollectionViewCell {
 
-    collectionView.alwaysBounceVertical = true
     // Get the newest update
     taskArray = StorageHandler.getStorage()
     let taskValueArray = taskArray[indexPath.item]
@@ -52,7 +52,9 @@ extension SwatchesViewController {
     ColorHandler.setText(text:taskValueArray[1], cell:cell, align: .right)
     
     let date = StorageHandler.getDate(str: taskValueArray[1])
-    ColorHandler.colorCell(cell: cell, date: date)
+    let color = StorageHandler.getSetting(type: "alert")
+    ColorHandler.colorCell(cell: cell, date: date, color: color)
+    
     
     return cell
   }

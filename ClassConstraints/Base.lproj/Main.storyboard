@@ -206,12 +206,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4v-bt-woj">
-                                <rect key="frame" x="40" y="99" width="32.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iRG-uq-ppN">
                                 <rect key="frame" x="222" y="94" width="138" height="31"/>
                                 <subviews>
@@ -242,18 +236,65 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sort" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4v-bt-woj">
+                                <rect key="frame" x="40" y="99" width="32.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alert" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaG-E4-Lq2">
+                                <rect key="frame" x="40" y="197" width="36.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YKi-jV-Zxs">
+                                <rect key="frame" x="218" y="192" width="146" height="31"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="left" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Tnf-4h-vrX">
+                                        <rect key="frame" x="0.0" y="0.0" width="146" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gray" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7X-lC-gyK">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GWq-34-e4X">
+                                                <rect key="frame" x="46" y="0.0" width="51" height="31"/>
+                                                <color key="tintColor" systemColor="linkColor"/>
+                                                <color key="onTintColor" name="AccentColor"/>
+                                                <connections>
+                                                    <action selector="toggleAlert:" destination="iiU-FU-VjD" eventType="primaryActionTriggered" id="Ag2-qL-TnU"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG4-Y0-vzh">
+                                                <rect key="frame" x="105" y="0.0" width="41" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EQy-4R-KGw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="h4v-bt-woj" firstAttribute="top" secondItem="EQy-4R-KGw" secondAttribute="top" constant="55" id="8Kr-0B-AqI"/>
+                            <constraint firstItem="HaG-E4-Lq2" firstAttribute="top" secondItem="h4v-bt-woj" secondAttribute="bottom" constant="77.5" id="Gst-xF-Q4z"/>
+                            <constraint firstItem="YKi-jV-Zxs" firstAttribute="top" secondItem="iRG-uq-ppN" secondAttribute="bottom" constant="67" id="MxC-th-W5c"/>
                             <constraint firstItem="iRG-uq-ppN" firstAttribute="top" secondItem="EQy-4R-KGw" secondAttribute="top" constant="50" id="VsY-6Z-Nev"/>
                             <constraint firstItem="EQy-4R-KGw" firstAttribute="trailing" secondItem="iRG-uq-ppN" secondAttribute="trailing" constant="54" id="ej4-44-POL"/>
+                            <constraint firstItem="EQy-4R-KGw" firstAttribute="trailing" secondItem="YKi-jV-Zxs" secondAttribute="trailing" constant="50" id="tsv-el-Eaw"/>
+                            <constraint firstItem="HaG-E4-Lq2" firstAttribute="leading" secondItem="EQy-4R-KGw" secondAttribute="leading" constant="40" id="vce-B7-taK"/>
                             <constraint firstItem="h4v-bt-woj" firstAttribute="leading" secondItem="EQy-4R-KGw" secondAttribute="leading" constant="40" id="vgk-o3-Cad"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="circle.grid.cross" catalog="system" id="HUE-Yw-CMV"/>
                     <connections>
+                        <outlet property="alertSwitch" destination="GWq-34-e4X" id="f14-6G-N8n"/>
                         <outlet property="sortSwitch" destination="Oxr-mH-AEk" id="fWO-CU-WZu"/>
                     </connections>
                 </viewController>

@@ -19,7 +19,6 @@ struct ColorHandler {
     static let defaultColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1.0)
     
     static func colorCell(cell: UICollectionViewCell, date: Date, color: Bool) {
-        let timestamp = NSDate(timeIntervalSinceNow: 60) as Date
         let color = assignColors(date: date, color: color)
         cell.backgroundColor = color
     }

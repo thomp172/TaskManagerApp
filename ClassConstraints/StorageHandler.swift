@@ -8,7 +8,9 @@
 import Foundation
 
 struct StorageHandler {
+    static let taskListName = "taskList"
     static var defaultStorage: UserDefaults = UserDefaults.standard
+    
     /*set and get settings*/
     static func getSetting(type: String) -> Bool {
         var settingBool: Bool
@@ -25,8 +27,8 @@ struct StorageHandler {
     
     static func getStorage() -> [[String]] {
         var taskArrays: [[String]]
-        if isSet(key: "taskList") {
-            taskArrays = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            taskArrays = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
         } else {
             taskArrays = [[]]
         }
@@ -38,56 +40,56 @@ struct StorageHandler {
     }
    
     static func setStorage(taskArrays: [[String]]) {
-        defaultStorage.set(taskArrays, forKey:"taskList")
+        defaultStorage.set(taskArrays, forKey:taskListName)
     }
     
     static func setAt(value: [String],index: Int) {
         var taskArrays: [[String]]
         
-        if isSet(key: "taskList") {
-            taskArrays = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            taskArrays = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
             taskArrays[index] = value
         }
         else {
             taskArrays = [value]
         }
-        defaultStorage.set(taskArrays, forKey: "taskList")
+        defaultStorage.set(taskArrays, forKey: taskListName)
     }
     
     static func set(value: [String]) {
         var taskArrays: [[String]]
         
-        if isSet(key: "taskList") {
-            taskArrays = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            taskArrays = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
             taskArrays.append(value)
         }
         else {
             taskArrays = [value]
         }
-        defaultStorage.set(taskArrays, forKey: "taskList")
+        defaultStorage.set(taskArrays, forKey: taskListName)
     }
     
     static func storageCount() -> Int {
-        if isSet(key: "taskList") {
-            let taskArrays: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            let taskArrays: [[String]] = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
             return taskArrays.count
         }
         return 0
     }
     static func remove(index: Int) {
-        if isSet(key: "taskList") {
-            var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
             taskArray.remove(at:index)
             
-            defaultStorage.set(taskArray, forKey: "taskList")
+            defaultStorage.set(taskArray, forKey: taskListName)
         }
     }
     static func sort(col:Int) {
-        if isSet(key: "taskList") {
-            var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()["taskList"] as! [[String]]
+        if isSet(key: taskListName) {
+            var taskArray: [[String]] = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
             let count = taskArray.count
             quicksort(&taskArray, low:0, high: count-1, col:col)
-            defaultStorage.set(taskArray, forKey: "taskList")
+            defaultStorage.set(taskArray, forKey: taskListName)
         }
     }
     
@@ -120,7 +122,6 @@ struct StorageHandler {
             //check if date
             if (col == 1) {
                 compare = getDate(str:value) < getDate(str:pivot)
-                
             }
             if (compare)
             {

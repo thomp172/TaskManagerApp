@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     /*buttons*/
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
   
     /*stack view*/

@@ -146,6 +146,7 @@
                     <connections>
                         <outlet property="background" destination="Lvz-ke-Cdo" id="S3l-K5-HMi"/>
                         <outlet property="dateInput" destination="hg1-He-GUm" id="P3l-dV-L3C"/>
+                        <outlet property="deleteButton" destination="tRm-Lz-MLk" id="gMN-Ll-RcI"/>
                         <outlet property="discardButton" destination="Nx8-sK-wSw" id="EZX-uD-dRc"/>
                         <outlet property="noteInput" destination="Qb5-Wc-LWo" id="4Up-vP-aqO"/>
                         <outlet property="removeView" destination="mwu-wW-L6M" id="Rpw-sr-orz"/>
@@ -223,7 +224,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBu-a5-KSO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-153" y="-517"/>
+            <point key="canvasLocation" x="-153.62318840579712" y="-517.63392857142856"/>
         </scene>
     </scenes>
     <resources>

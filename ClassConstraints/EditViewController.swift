@@ -65,11 +65,17 @@ class EditViewController: UIViewController {
         
         //recognize tap
         let tapRecognizer = UITapGestureRecognizer()
-        tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
+        tapRecognizer.addTarget(self, action: #selector(EditViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
         
     }
     
+    /*
+     Complete edit
+     */
+    @objc func didTapView() {
+        self.view.endEditing(true)
+    }
 
 }
 

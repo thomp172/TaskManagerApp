@@ -295,6 +295,7 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="circle.grid.cross" catalog="system" id="HUE-Yw-CMV"/>
                     <connections>
                         <outlet property="alertSwitch" destination="GWq-34-e4X" id="f14-6G-N8n"/>
+                        <outlet property="background" destination="i99-Jd-lB3" id="sZU-ho-0S6"/>
                         <outlet property="sortSwitch" destination="Oxr-mH-AEk" id="fWO-CU-WZu"/>
                     </connections>
                 </viewController>

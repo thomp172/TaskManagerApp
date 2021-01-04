@@ -18,29 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-Sf-eNP">
-                                <rect key="frame" x="37" y="348" width="340" height="465"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yGW-Sf-eNP">
+                                <rect key="frame" x="37" y="54" width="340" height="725"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleAspectFit" distribution="fillEqually" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YUB-YC-fNR">
-                                        <rect key="frame" x="0.0" y="0.0" width="340" height="435"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qER-B7-s3F">
+                                        <rect key="frame" x="0.0" y="0.0" width="340" height="725"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-zz-gdR">
-                                                <rect key="frame" x="0.0" y="0.0" width="340" height="435"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5eT-zz-gdR">
+                                                <rect key="frame" x="0.0" y="0.0" width="340" height="676"/>
                                                 <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstore" translatesAutoresizingMaskIntoConstraints="NO" id="g4M-q2-5gP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="340" id="Kib-wm-e1R"/>
+                                                            <constraint firstAttribute="height" constant="150" id="YWo-8e-fMh"/>
+                                                        </constraints>
+                                                    </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Notes!" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJI-E7-JeL">
-                                                        <rect key="frame" x="0.0" y="0.0" width="340" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="155" width="340" height="33.5"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9D-HZ-CEj">
+                                                        <rect key="frame" x="0.0" y="193.5" width="340" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lRY-6w-vYS">
-                                                        <rect key="frame" x="0.0" y="38.5" width="340" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="219" width="340" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NBh-Lb-plN">
-                                                        <rect key="frame" x="0.0" y="64" width="340" height="34"/>
+                                                        <rect key="frame" x="0.0" y="244.5" width="340" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                         <connections>
@@ -48,23 +61,22 @@
                                                         </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCf-Uz-CkZ">
-                                                        <rect key="frame" x="0.0" y="103" width="340" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="283.5" width="340" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hg1-He-GUm">
-                                                        <rect key="frame" x="0.0" y="128.5" width="340" height="216"/>
+                                                        <rect key="frame" x="0.0" y="309" width="340" height="216"/>
                                                     </datePicker>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eKg-9W-qTR">
-                                                        <rect key="frame" x="0.0" y="349.5" width="340" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="530" width="340" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JvH-XD-qzC">
-                                                        <rect key="frame" x="0.0" y="375" width="340" height="60"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <rect key="frame" x="0.0" y="555.5" width="340" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="ePm-i4-6iY"/>
                                                             <constraint firstAttribute="width" constant="340" id="tQI-dx-UwT"/>
@@ -72,89 +84,117 @@
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" systemColor="systemGray4Color"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <integer key="value" value="1"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <integer key="value" value="10"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-UK-5Us">
+                                                        <rect key="frame" x="0.0" y="620.5" width="340" height="30"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrA-B8-84j">
+                                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="30"/>
+                                                                <state key="normal" title=" Save "/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="AccentColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <real key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="saveTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="gxw-d6-Ya4"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-sK-wSw">
+                                                                <rect key="frame" x="116.5" y="0.0" width="107" height="30"/>
+                                                                <state key="normal" title="Discard"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="AccentColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="discardTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="o1U-Wf-Fhs"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRm-Lz-MLk">
+                                                                <rect key="frame" x="233.5" y="0.0" width="106.5" height="30"/>
+                                                                <state key="normal" title="Delete"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                        <color key="value" name="AccentColor"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="deleteTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="9a3-4I-C7n"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVz-t2-2Ct">
+                                                        <rect key="frame" x="0.0" y="655.5" width="340" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="g4M-q2-5gP" firstAttribute="top" secondItem="5eT-zz-gdR" secondAttribute="top" id="43z-BG-XUo"/>
+                                                    <constraint firstItem="g4M-q2-5gP" firstAttribute="leading" secondItem="5eT-zz-gdR" secondAttribute="leading" id="4NL-ss-UYc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="g4M-q2-5gP" secondAttribute="trailing" id="tF1-Hs-Qex"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vIS-UK-5Us">
-                                        <rect key="frame" x="0.0" y="435" width="340" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrA-B8-84j">
-                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="30"/>
-                                                <state key="normal" title=" Save "/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="AccentColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="saveTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="gxw-d6-Ya4"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nx8-sK-wSw">
-                                                <rect key="frame" x="116.5" y="0.0" width="107" height="30"/>
-                                                <state key="normal" title="Discard"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="AccentColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="discardTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="o1U-Wf-Fhs"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tRm-Lz-MLk">
-                                                <rect key="frame" x="233.5" y="0.0" width="106.5" height="30"/>
-                                                <state key="normal" title="Delete"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" name="AccentColor"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <integer key="value" value="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="deleteTask:" destination="6PI-G9-AuH" eventType="primaryActionTriggered" id="9a3-4I-C7n"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                        <constraints>
+                                            <constraint firstItem="5eT-zz-gdR" firstAttribute="leading" secondItem="OVP-02-ObT" secondAttribute="leading" id="5vj-1n-OVr"/>
+                                            <constraint firstItem="5eT-zz-gdR" firstAttribute="trailing" secondItem="OVP-02-ObT" secondAttribute="trailing" id="QIx-fY-xh8"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="JLy-1j-Oz3"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="OVP-02-ObT"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="contentSize">
+                                                <size key="value" width="320" height="700"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </scrollView>
                                 </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playstore" translatesAutoresizingMaskIntoConstraints="NO" id="g4M-q2-5gP">
-                                <rect key="frame" x="37" y="143" width="340" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="340" id="Kib-wm-e1R"/>
-                                    <constraint firstAttribute="height" constant="200" id="YWo-8e-fMh"/>
+                                    <constraint firstItem="qER-B7-s3F" firstAttribute="leading" secondItem="yGW-Sf-eNP" secondAttribute="leading" id="agi-nd-QmN"/>
+                                    <constraint firstAttribute="trailing" secondItem="qER-B7-s3F" secondAttribute="trailing" id="ceN-XQ-Qy1"/>
+                                    <constraint firstItem="qER-B7-s3F" firstAttribute="top" secondItem="yGW-Sf-eNP" secondAttribute="top" id="hrR-Lw-Ps8"/>
                                 </constraints>
-                            </imageView>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TfH-nf-3Gc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TfH-nf-3Gc" firstAttribute="trailing" secondItem="yGW-Sf-eNP" secondAttribute="trailing" constant="37" id="4PE-7K-LAJ"/>
-                            <constraint firstItem="yGW-Sf-eNP" firstAttribute="top" secondItem="g4M-q2-5gP" secondAttribute="bottom" constant="5" id="9b0-kR-4Rl"/>
-                            <constraint firstItem="TfH-nf-3Gc" firstAttribute="bottom" secondItem="yGW-Sf-eNP" secondAttribute="bottom" id="QAe-9c-780"/>
-                            <constraint firstItem="g4M-q2-5gP" firstAttribute="leading" secondItem="TfH-nf-3Gc" secondAttribute="leading" constant="37" id="h65-Rm-lNf"/>
-                            <constraint firstItem="yGW-Sf-eNP" firstAttribute="leading" secondItem="TfH-nf-3Gc" secondAttribute="leading" constant="37" id="ilQ-wd-oyn"/>
-                            <constraint firstItem="TfH-nf-3Gc" firstAttribute="trailing" secondItem="g4M-q2-5gP" secondAttribute="trailing" constant="37" id="vLe-Y2-YmW"/>
+                            <constraint firstItem="TfH-nf-3Gc" firstAttribute="trailing" secondItem="yGW-Sf-eNP" secondAttribute="trailing" constant="37" id="ExY-ZS-94J"/>
+                            <constraint firstItem="yGW-Sf-eNP" firstAttribute="top" secondItem="TfH-nf-3Gc" secondAttribute="top" constant="10" id="d3I-5n-giE"/>
+                            <constraint firstItem="yGW-Sf-eNP" firstAttribute="leading" secondItem="TfH-nf-3Gc" secondAttribute="leading" constant="37" id="nKh-Rp-GQ3"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notes" image="pencil" catalog="system" id="6CX-XA-LVd"/>
@@ -167,6 +207,8 @@
                         <outlet property="label" destination="eJI-E7-JeL" id="4u6-ZU-Vzx"/>
                         <outlet property="noteInput" destination="JvH-XD-qzC" id="zoL-KQ-scn"/>
                         <outlet property="saveButton" destination="zrA-B8-84j" id="s6P-v1-jKx"/>
+                        <outlet property="scrollView" destination="qER-B7-s3F" id="utl-NC-rJn"/>
+                        <outlet property="stackview" destination="5eT-zz-gdR" id="CP5-JN-qvt"/>
                         <outlet property="titleInput" destination="NBh-Lb-plN" id="C1F-89-Ho2"/>
                     </connections>
                 </viewController>
@@ -369,6 +411,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

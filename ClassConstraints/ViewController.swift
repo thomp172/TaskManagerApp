@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     /*title image*/
     @IBOutlet weak var imageView: UIImageView!
     
+    /*scroll view*/
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var stackview: UIStackView!
+    
     /*view*/
     @IBOutlet var background: UIView!
    
@@ -138,6 +142,20 @@ class ViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(ViewController.didTapView))
         self.view.addGestureRecognizer(tapRecognizer)
+        
+        scrollView.addSubview(stackview)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        stackview.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        stackview.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        stackview.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        stackview.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        stackview.widthAnchor.constraint(greaterThanOrEqualTo: scrollView.widthAnchor).isActive = true
+        
+        scrollView.heightAnchor.constraint(equalTo: background.heightAnchor).isActive = true
+        
+        scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = true
         
     }
     

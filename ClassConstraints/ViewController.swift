@@ -44,7 +44,9 @@ class ViewController: UIViewController {
     @IBAction func saveTask(_ sender: Any) {
         setDefaults()
         sort()
-        index = StorageHandler.storageCount() - 1
+        if (index == -1) {
+            index = StorageHandler.storageCount() - 1
+        }
         label.text = "Edit Notes!"
         deleteButton.isHidden = false
     }

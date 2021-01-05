@@ -69,6 +69,12 @@ struct StorageHandler {
         defaultStorage.set(taskArrays, forKey: taskListName)
     }
     
+    static func getIndex(value: [String]) -> Int {
+        let taskArray = getStorage()
+        let index = taskArray.firstIndex(of: value) ?? taskArray.count
+        return index
+    }
+    
     static func storageCount() -> Int {
         if isSet(key: taskListName) {
             let taskArrays: [[String]] = UserDefaults.standard.dictionaryRepresentation()[taskListName] as! [[String]]
@@ -118,10 +124,13 @@ struct StorageHandler {
         for j in low ..< high+1
         {
             let value = taskArray[j][col]
-            var compare = value < pivot
+            var compare = true
             //check if date
             if (col == 1) {
                 compare = getDate(str:value) < getDate(str:pivot)
+            } //else use title string
+            else {
+                compare = value.lowercased() < pivot.lowercased()
             }
             if (compare)
             {

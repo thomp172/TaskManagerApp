@@ -42,11 +42,9 @@ class ViewController: UIViewController {
      User saves task as default
      */
     @IBAction func saveTask(_ sender: Any) {
-        setDefaults()
+        let tasks = setDefaults()
         sort()
-        if (index == -1) {
-            index = StorageHandler.storageCount() - 1
-        }
+        index = StorageHandler.getIndex(value: tasks)
         label.text = "Edit Notes!"
         deleteButton.isHidden = false
     }
@@ -82,7 +80,7 @@ class ViewController: UIViewController {
     /*
      saves current task in a 2D array
      */
-    func setDefaults() {
+    func setDefaults() -> [String] {
         let dateFormatter = DateFormatter()
 
         dateFormatter.dateFormat = "MM/dd/yy, hh:mm a"
@@ -100,7 +98,7 @@ class ViewController: UIViewController {
         else {
             StorageHandler.set(value: array)
         }
-        
+        return array
     }
   
     /*
